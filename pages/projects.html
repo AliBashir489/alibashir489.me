@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Ali Bashir</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Ali Bashir</a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="../index.html#contact" class="nav-cta">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section projects-hero">
+        <div class="content-wrapper fade-in-up">
+            <h1 class="page-title">Featured <span class="gradient-text">Projects</span></h1>
+            <p class="page-subtitle">Websites and systems I've built for clients. From responsive web design to scalable cloud infrastructure.</p>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="content-wrapper">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="devops">DevOps</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card fade-in" data-category="devops">
+                    <div class="project-image">
+                        <div class="project-icon">☁️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>CI/CD Pipeline Automation</h3>
+                        <p>Architected and deployed automated CI/CD pipelines using GitHub Actions and AWS CodePipeline, reducing deployment time by 70% and enabling teams to ship faster.</p>
+                        <div class="project-tags">
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <a href="#" class="project-link">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="devops">
+                    <div class="project-image">
+                        <div class="project-icon">🏗️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Infrastructure as Code</h3>
+                        <p>Migrated legacy infrastructure to Terraform, enabling version-controlled, reproducible infrastructure deployments across multiple environments and reducing provisioning time.</p>
+                        <div class="project-tags">
+                            <span class="tag">Terraform</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">IaC</span>
+                        </div>
+                        <a href="#" class="project-link">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="fullstack">
+                    <div class="project-image">
+                        <div class="project-icon">⚙️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Financial Web Application</h3>
+                        <p>Built a mission-critical financial web application using React, Node.js, and AWS services, serving enterprise clients with complex workflows and real-time data processing.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                        <a href="#" class="project-link">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="ai">
+                    <div class="project-image">
+                        <div class="project-icon">🤖</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI-Powered Data Extraction</h3>
+                        <p>Developed a generative AI application using AWS Bedrock to extract insurance quote data from call transcripts, reducing manual data entry by 50-70% with improved accuracy.</p>
+                        <div class="project-tags">
+                            <span class="tag">AWS Bedrock</span>
+                            <span class="tag">LLM</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <a href="#" class="project-link">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="devops">
+                    <div class="project-image">
+                        <div class="project-icon">🔒</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Secure DevOps Infrastructure</h3>
+                        <p>Implemented security best practices across infrastructure, including IAM policies, encryption, secrets management, and compliance monitoring for multi-tenant environments.</p>
+                        <div class="project-tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Compliance</span>
+                        </div>
+                        <a href="#" class="project-link">View Details →</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="fullstack">
+                    <div class="project-image">
+                        <div class="project-icon">🎨</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Modern Portfolio Website</h3>
+                        <p>Designed and developed a high-performance, responsive portfolio website with modern animations, smooth transitions, and optimized for all devices and screen sizes.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">GitHub Pages</span>
+                        </div>
+                        <a href="#" class="project-link">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="content-wrapper text-center">
+            <h2>Ready to Start Your Project?</h2>
+            <p>I'm available for custom web design, full-stack development, and DevOps work. Contact me for a free consultation and quote.</p>
+            <a href="../index.html#contact" class="btn-primary">Get In Touch for a Quote</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ali Bashir — DevOps Software Engineer • Built with HTML & CSS</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
