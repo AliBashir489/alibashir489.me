@@ -8,13 +8,15 @@ const phrases = [
 const typingEl = document.getElementById('typingText');
 if (typingEl) {
     let pIndex = 0, charIndex = 0, deleting = false;
+    let typeTimeout;
 
     function typeLoop() {
         const current = phrases[pIndex];
         if (!deleting) {
             typingEl.textContent = current.slice(0, ++charIndex);
             if (charIndex === current.length) {
-                setTimeout(() => { deleting = true; }, 900);
+                typeTimeout = setTimeout(() => { deleting = true; typeLoop(); }, 900);
+                return;
             }
         } else {
             typingEl.textContent = current.slice(0, --charIndex);
@@ -23,10 +25,21 @@ if (typingEl) {
                 pIndex = (pIndex + 1) % phrases.length;
             }
         }
-        setTimeout(typeLoop, deleting ? 40 : 70);
+        typeTimeout = setTimeout(typeLoop, deleting ? 40 : 70);
+    }
+
+    // Reset typing every 30 seconds
+    function resetTyping() {
+        clearTimeout(typeTimeout);
+        pIndex = 0;
+        charIndex = 0;
+        deleting = false;
+        typingEl.textContent = '';
+        typeLoop();
     }
 
     document.addEventListener('DOMContentLoaded', () => { typeLoop(); });
+    setInterval(resetTyping, 30000);
 }
 
 // Code window reveal/unreveal loop
