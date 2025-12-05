@@ -1,8 +1,8 @@
 // Typing animation for hero
 const phrases = [
-    'Cloud automation • CI/CD • Terraform',
-    'AWS, Docker, JavaScript',
-    'Building scalable systems and elegant solutions'
+    'Open to freelance & web design roles',
+    'DevOps & infrastructure automation',
+    'Full-stack web development'
 ];
 
 const typingEl = document.getElementById('typingText');
@@ -91,18 +91,20 @@ document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el 
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger) {
+if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+    
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
     });
 }
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navMenu) navMenu.style.display = 'none';
-    });
-});
 
 // Project filter (if on projects page)
 const filterBtns = document.querySelectorAll('.filter-btn');
