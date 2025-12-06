@@ -44,7 +44,7 @@
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-cta{ padding:0.5rem 1rem; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); border-radius:50px; color:var(--bg-dark) !important; font-weight:600; }
         .nav-cta::after { display:none !important; }
-        .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; position:relative; z-index:1001; }
         .hamburger span{ width:25px; height:3px; background:var(--accent-cyan); transition:all 0.3s; border-radius:2px; }
         @media (max-width: 768px) {
             .hamburger { display:flex; }
@@ -62,7 +62,7 @@
         .gradient-text{ background: linear-gradient(135deg,var(--accent-cyan),var(--accent-purple),var(--accent-pink)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
         .hero-subtitle{ color:var(--text-secondary); font-size:clamp(1rem, 0.9rem + 0.6vw, 1.6rem); margin-bottom:1.5rem; max-width:56ch; }
 
-        .typing-container{ height:2rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; }
+        .typing-container{ height:2rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:flex-start; }
         .typing-text{ font-size:1.05rem; color:var(--accent-cyan); font-weight:500; min-height:1.5rem; display:flex; align-items:center; white-space:nowrap; }
         .cursor{ display:inline-block; width:2px; height:1.2rem; background:var(--accent-cyan); margin-left:6px; animation:blink 0.7s infinite; align-self:center; }
         @keyframes blink{ 0%,50%{opacity:1;}51%,100%{opacity:0;} }
