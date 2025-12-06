@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Generator - Ali Bashir</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        #canvas-container {
+            position: relative;
+        }
+        
+        #preview {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Gradient Orbs */
+        .orb1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .orb2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 245, 0.3) 0%, transparent 70%);
+            bottom: -150px;
+            left: -100px;
+            border-radius: 50%;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 80px 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00fff5, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+        }
+        
+        .title {
+            font-size: 64px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00fff5, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            color: #a1a1aa;
+            font-weight: 600;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgba(0, 255, 245, 0.1);
+            border: 2px solid #00fff5;
+            border-radius: 50px;
+            color: #00fff5;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .controls {
+            background: #0f0f0f;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+        
+        button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #00fff5, #a855f7);
+            border: none;
+            border-radius: 8px;
+            color: #0f0f0f;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+        }
+        
+        .instructions {
+            color: #a1a1aa;
+            max-width: 1200px;
+            background: #0f0f0f;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+        
+        .instructions h2 {
+            color: #00fff5;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #00fff5; margin-bottom: 10px;">Open Graph Image Generator</h1>
+    <p style="color: #a1a1aa; margin-bottom: 20px;">Screenshot the preview below (1200x630px)</p>
+    
+    <div id="canvas-container">
+        <div id="preview">
+            <div class="orb1"></div>
+            <div class="orb2"></div>
+            <div class="content">
+                <div class="logo">AB</div>
+                <h1 class="title">
+                    <span class="gradient-text">Ali Bashir</span><br>
+                    DevOps Engineer & Freelancer
+                </h1>
+                <p class="subtitle">
+                    Cloud Infrastructure • CI/CD Automation • Full-Stack Development
+                </p>
+                <div class="badge">🚀 Active Freelancer</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button onclick="downloadAsImage()">Download as PNG</button>
+    </div>
+    
+    <div class="instructions">
+        <h2>📝 Instructions:</h2>
+        <ol>
+            <li><strong>Option 1:</strong> Click "Download as PNG" button above (requires html2canvas library)</li>
+            <li><strong>Option 2:</strong> Take a screenshot of the preview box above at exactly 1200x630px</li>
+            <li><strong>Option 3:</strong> Use browser developer tools to screenshot just the #preview element</li>
+            <li>Save the image as <code>og-image.png</code> in your website root folder</li>
+            <li>Upload it to your GitHub repository</li>
+            <li>Test your link on <a href="https://www.opengraph.xyz/" target="_blank" style="color: #00fff5;">OpenGraph.xyz</a> or LinkedIn's Post Inspector</li>
+        </ol>
+        <p style="margin-top: 15px;">
+            <strong>Quick tip:</strong> On Windows, use Win + Shift + S to open Snipping Tool for precise screenshots!
+        </p>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        async function downloadAsImage() {
+            const preview = document.getElementById('preview');
+            try {
+                const canvas = await html2canvas(preview, {
+                    width: 1200,
+                    height: 630,
+                    scale: 2,
+                    backgroundColor: '#0f0f0f'
+                });
+                
+                const link = document.createElement('a');
+                link.download = 'og-image.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                alert('Download failed. Please take a screenshot instead!');
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
