@@ -77,13 +77,22 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.animation = `fadeInUp 0.8s ease-out forwards`;
+            // Determine which animation to use based on class
+            let animation = 'fadeInUp 0.8s ease-out forwards';
+            if (entry.target.classList.contains('fade-in-left')) {
+                animation = 'fadeInLeft 0.8s ease-out forwards';
+            } else if (entry.target.classList.contains('fade-in-right')) {
+                animation = 'fadeInRight 0.8s ease-out forwards';
+            } else if (entry.target.classList.contains('fade-in')) {
+                animation = 'fadeIn 0.6s ease-out forwards';
+            }
+            entry.target.style.animation = animation;
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-up').forEach(el => {
     observer.observe(el);
 });
 
