@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Bashir | DevOps Software Developer</title>
+    <meta name="description" content="Ali Bashir - DevOps-oriented Software Engineer & Active Freelancer. Expert in AWS, Terraform, CI/CD pipelines, and full-stack web development.">
+    <meta name="keywords" content="DevOps engineer, software developer, freelance developer, AWS, Terraform, CI/CD, web development, cloud infrastructure">
+    <meta name="author" content="Ali Bashir">
+    <meta name="theme-color" content="#0f0f0f">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alibashir.me/">
+    <meta property="og:title" content="Ali Bashir | DevOps Software Engineer & Freelancer">
+    <meta property="og:description" content="DevOps-oriented Software Engineer specializing in cloud infrastructure, automation, and full-stack development">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ali Bashir | DevOps Software Engineer & Freelancer">
+    <meta name="twitter:description" content="DevOps-oriented Software Engineer specializing in cloud infrastructure, automation, and full-stack development">
+    
+    <title>Ali Bashir | DevOps Software Engineer & Freelancer</title>
+    <link rel="canonical" href="https://www.alibashir.me/">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
@@ -21,8 +38,20 @@
         nav{ display:flex; justify-content:space-between; align-items:center; max-width:1400px; margin:0 auto; }
         .logo{ font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); font-weight:800; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
         .nav-links{ display:flex; gap:2rem; list-style:none; align-items:center; }
-        .nav-links a{ color:var(--text-secondary); text-decoration:none; font-weight:500; }
+        .nav-links a{ color:var(--text-secondary); text-decoration:none; font-weight:500; position:relative; transition: color 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); transition: width 0.3s ease; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-cta{ padding:0.5rem 1rem; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); border-radius:50px; color:var(--bg-dark) !important; font-weight:600; }
+        .nav-cta::after { display:none !important; }
+        .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
+        .hamburger span{ width:25px; height:3px; background:var(--accent-cyan); transition:all 0.3s; border-radius:2px; }
+        @media (max-width: 768px) {
+            .hamburger { display:flex; }
+            .nav-links { position:fixed; right:-100%; top:70px; flex-direction:column; background:rgba(26,26,26,0.98); width:250px; padding:2rem; border-radius:12px 0 0 12px; transition:right 0.3s ease; border-left:1px solid rgba(255,255,255,0.1); }
+            .nav-links.active { right:0; }
+            .nav-links a::after { bottom:-3px; }
+        }
 
         /* Hero Section */
         .hero{ min-height:100vh; display:flex; align-items:center; justify-content:space-between; padding:0 5%; max-width:1400px; margin:0 auto; gap:2rem; padding-top:4rem; }
@@ -71,20 +100,25 @@
     <header>
         <nav>
             <a href="index.html" class="logo">Ali Bashir</a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navMenu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="pages/about.html">About</a></li>
                 <li><a href="pages/projects.html">Work</a></li>
                 <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-label">🚀 Open to freelance & full-time</div>
+            <div class="hero-label">🚀 Active Freelancer & Professional Engineer</div>
             <h1>Hi, I'm <span class="gradient-text">Ali Bashir</span></h1>
-            <p class="hero-subtitle">DevOps-oriented Software Developer with experience building CI/CD pipelines, automating cloud infrastructure, and developing large-scale enterprise applications. Skilled in AWS, Terraform, Docker, and Node.js.</p>
+            <p class="hero-subtitle">DevOps-oriented Software Engineer & Freelance Developer. I build CI/CD pipelines, automate cloud infrastructure, and develop full-stack web applications. Expert in AWS, Terraform, Docker, and Node.js.</p>
 
             <div class="typing-container"><span class="typing-text" id="typingText"></span><span class="cursor"></span></div>
 
@@ -105,7 +139,7 @@
                     <div class="code-line">const developer = {</div>
                     <div class="code-line">  name: "Ali Bashir",</div>
                     <div class="code-line">  role: "DevOps Software Developer",</div>
-                    <div class="code-line">  skills: ["AWS","Terraform","Docker"],</div>
+                    <div class="code-line">  skills: ["AWS","Terraform","JacaScript"],</div>
                     <div class="code-line">  passion: "Cloud automation and scalable systems"</div>
                     <div class="code-line">};</div>
                 </div>
@@ -165,38 +199,121 @@
     <section id="contact">
         <div class="section-header">
             <h2 class="section-title">Ready to Build Your Website?</h2>
-            <p style="color:var(--text-secondary); max-width:700px; margin:0.6rem auto 0;">Let's discuss your project. Get in touch for a free consultation and custom quote.</p>
+            <p style="color:var(--text-secondary); max-width:700px; margin:0.6rem auto 0;">Let's discuss your project. Fill out the form below or reach out directly.</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div style="max-width:700px; margin:2rem auto 3rem;">
+            <form id="contactForm" style="display:flex; flex-direction:column; gap:1.2rem;">
+                <div>
+                    <label for="name" style="display:block; margin-bottom:0.5rem; color:var(--text-primary); font-weight:600;">Name *</label>
+                    <input type="text" id="name" name="name" required 
+                           style="width:100%; padding:0.9rem 1.2rem; background:rgba(26,26,26,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:var(--text-primary); font-size:1rem; font-family:inherit; transition:all 0.3s;"
+                           placeholder="Your name">
+                </div>
+                <div>
+                    <label for="email" style="display:block; margin-bottom:0.5rem; color:var(--text-primary); font-weight:600;">Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           style="width:100%; padding:0.9rem 1.2rem; background:rgba(26,26,26,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:var(--text-primary); font-size:1rem; font-family:inherit; transition:all 0.3s;"
+                           placeholder="your.email@example.com">
+                </div>
+                <div>
+                    <label for="phone" style="display:block; margin-bottom:0.5rem; color:var(--text-primary); font-weight:600;">Phone</label>
+                    <input type="tel" id="phone" name="phone" 
+                           style="width:100%; padding:0.9rem 1.2rem; background:rgba(26,26,26,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:var(--text-primary); font-size:1rem; font-family:inherit; transition:all 0.3s;"
+                           placeholder="+1 (555) 000-0000">
+                </div>
+                <div>
+                    <label for="projectType" style="display:block; margin-bottom:0.5rem; color:var(--text-primary); font-weight:600;">Project Type *</label>
+                    <select id="projectType" name="projectType" required 
+                            style="width:100%; padding:0.9rem 1.2rem; background:rgba(26,26,26,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:var(--text-primary); font-size:1rem; font-family:inherit; transition:all 0.3s;">
+                        <option value="">Select project type</option>
+                        <option value="website">Website Development</option>
+                        <option value="webapp">Web Application</option>
+                        <option value="devops">DevOps / Cloud Infrastructure</option>
+                        <option value="cicd">CI/CD Pipeline Setup</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message" style="display:block; margin-bottom:0.5rem; color:var(--text-primary); font-weight:600;">Project Details *</label>
+                    <textarea id="message" name="message" required rows="5" 
+                              style="width:100%; padding:0.9rem 1.2rem; background:rgba(26,26,26,0.6); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:var(--text-primary); font-size:1rem; font-family:inherit; resize:vertical; transition:all 0.3s;"
+                              placeholder="Tell me about your project, timeline, and budget..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%; cursor:pointer;">
+                    Send Message
+                </button>
+                <div id="formStatus" style="text-align:center; margin-top:0.5rem; font-weight:600;"></div>
+            </form>
         </div>
 
         <div class="contact-grid" style="max-width:1000px; margin:0 auto;">
-            <a class="contact-card" href="mailto:alibashirscode@gmail.com">
+            <a class="contact-card" href="mailto:alibashirscode@gmail.com" aria-label="Email Ali Bashir">
                 <div style="font-weight:700;">Email</div>
                 <div style="color:var(--text-secondary)">alibashirscode@gmail.com</div>
             </a>
-            <a class="contact-card" href="tel:+19546634510">
+            <a class="contact-card" href="tel:+19546634510" aria-label="Call Ali Bashir">
                 <div style="font-weight:700;">Phone</div>
                 <div style="color:var(--text-secondary)">+1 954-663-4510</div>
             </a>
-            <a class="contact-card" href="https://www.linkedin.com/in/ali-bashir-ab6a96230/" target="_blank" rel="noopener">
+            <a class="contact-card" href="https://www.linkedin.com/in/ali-bashir-ab6a96230/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
                 <div style="font-weight:700;">LinkedIn</div>
                 <div style="color:var(--text-secondary)">linkedin.com/in/ali-bashir-ab6a96230</div>
             </a>
-            <a class="contact-card" href="https://github.com/AliBashir489" target="_blank" rel="noopener">
+            <a class="contact-card" href="https://github.com/AliBashir489" target="_blank" rel="noopener" aria-label="GitHub Profile">
                 <div style="font-weight:700;">GitHub</div>
                 <div style="color:var(--text-secondary)">github.com/AliBashir489</div>
             </a>
         </div>
     </section>
 
-    <footer style="text-align:center; padding:2rem 5%; color:var(--text-secondary);">© 2025 Ali Bashir — Freelancer & DevOps-Oriented Software Engineer</footer>
+    <footer style="text-align:center; padding:2rem 5%; color:var(--text-secondary);">© 2025 Ali Bashir — Active Freelancer & Professional Engineer</footer>
 
     <script>
-        // Typing animation for the small hero line
-        const phrases = [
-            'Cloud automation • CI/CD • Terraform',
-            'AWS, Docker, Node.js',
-            'Open to freelance web design & DevOps roles'
-        ];
+        // Contact form handler
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formStatus = document.getElementById('formStatus');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value || 'Not provided';
+            const projectType = document.getElementById('projectType').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent(`New Project Inquiry: ${projectType}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject Type: ${projectType}\n\nMessage:\n${message}`);
+            
+            submitBtn.textContent = 'Opening email...';
+            submitBtn.disabled = true;
+            window.location.href = `mailto:alibashirscode@gmail.com?subject=${subject}&body=${body}`;
+            
+            setTimeout(() => {
+                this.reset();
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                formStatus.style.color = 'var(--accent-cyan)';
+                formStatus.textContent = '✓ Email client opened! Please send the email.';
+                setTimeout(() => formStatus.textContent = '', 5000);
+            }, 1000);
+        });
+        
+        document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select').forEach(el => {
+            el.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--accent-cyan)';
+                this.style.boxShadow = '0 0 0 3px rgba(0, 255, 245, 0.1)';
+            });
+            el.addEventListener('blur', function() {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    
+        // Typing animation
+        const phrases = ['Open to freelance & web design roles', 'DevOps & infrastructure automation', 'Full-stack web development'];
         const typingEl = document.getElementById('typingText');
         let pIndex = 0, charIndex = 0, deleting = false;
 
@@ -228,5 +345,6 @@
         }
         animateCode();
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 // Typing animation for hero
 const phrases = [
-    'Open to freelance & web design roles',
+    'Freelancer & DevOps-Oriented Software Engineer',
     'DevOps & infrastructure automation',
     'Full-stack web development'
 ];
@@ -89,7 +89,7 @@ document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el 
 
 // Mobile menu toggle
 const hamburger = document.getElementById('hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const navMenu = document.querySelector('.nav-menu') || document.querySelector('.nav-links');
 
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
@@ -98,7 +98,7 @@ if (hamburger && navMenu) {
     });
     
     // Close menu when link is clicked
-    document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+    document.querySelectorAll('.nav-link, .nav-cta, .nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
@@ -140,3 +140,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Page transition effect on navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Fade in on page load
+    document.body.classList.remove('page-transition');
+    
+    // Add transition on link clicks (internal navigation)
+    document.querySelectorAll('a[href]:not([href^="#"]):not([href^="http"]):not([href^="mailto"]):not([href^="tel"])').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                document.body.classList.add('page-transition');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            }
+        });
+    });
+});
+

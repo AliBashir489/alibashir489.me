@@ -2,6 +2,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --bg-dark: #0f0f0f;
     --bg-card: #1a1a1a;
@@ -20,6 +24,11 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     line-height: 1.6;
+    transition: opacity 0.3s ease-in-out;
+}
+
+body.page-transition {
+    opacity: 0;
 }
 
 /* Gradient Background */
