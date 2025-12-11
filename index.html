@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ali Bashir - DevOps-oriented Software Engineer & Active Freelancer. Expert in AWS, Terraform, CI/CD pipelines, and full-stack web development.">
+    <meta name="description" content="Ali Bashir - DevOps-oriented Software Engineer & Active Freelancer. Expert in AWS, Terraform, CI/CD pipelines, and full-stack development.">
     <meta name="keywords" content="DevOps engineer, software developer, freelance developer, AWS, Terraform, CI/CD, web development, cloud infrastructure">
     <meta name="author" content="Ali Bashir">
     <meta name="theme-color" content="#0f0f0f">
@@ -28,6 +28,7 @@
     <link rel="canonical" href="https://www.alibashir.me/">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --bg-dark:#0f0f0f; --bg-card:#1a1a1a; --accent-cyan:#00fff5; --accent-purple:#a855f7; --accent-pink:#ec4899; --text-primary:#ffffff; --text-secondary:#a1a1aa; }
@@ -42,7 +43,8 @@
         header{ position:fixed; top:0; width:100%; padding:1.2rem 5%; background:rgba(15,15,15,0.8); backdrop-filter: blur(20px); z-index:1000; border-bottom:1px solid rgba(255,255,255,0.05); transform:translateY(-100%); transition:transform 0.3s ease; }
         header.show{ transform:translateY(0); }
         nav{ display:flex; justify-content:space-between; align-items:center; max-width:1400px; margin:0 auto; position:relative; z-index:1002; }
-        .logo{ font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); font-weight:800; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .logo{ font-family:'Great Vibes', cursive; font-size:clamp(2rem, 2rem + 1.5vw, 3rem); font-weight:400; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-decoration:none; letter-spacing:2px; position:relative; transition:transform 0.3s ease, filter 0.3s ease; }
+        .logo:hover{ transform:scale(1.05); filter:drop-shadow(0 0 10px rgba(0,255,245,0.4)); }
         .nav-links{ display:flex; gap:2rem; list-style:none; align-items:center; }
         .nav-links a{ color:var(--text-secondary); text-decoration:none; font-weight:500; position:relative; transition: color 0.3s ease; }
         .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
@@ -109,7 +111,7 @@
     <div class="gradient-bg"></div>
     <header>
         <nav>
-            <a href="index.html" class="logo">AB</a>
+            <a href="index.html" class="logo">Ali Bashir</a>
             <ul class="nav-links" id="navMenu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="pages/about.html">About</a></li>
@@ -149,7 +151,7 @@
                     <div class="code-line">const developer = {</div>
                     <div class="code-line">  name: "Ali Bashir",</div>
                     <div class="code-line">  role: "DevOps Software Developer",</div>
-                    <div class="code-line">  skills: ["AWS","Terraform","JacaScript"],</div>
+                    <div class="code-line">  skills: ["AWS","Terraform","JavaScript"],</div>
                     <div class="code-line">  passion: "Cloud automation and scalable systems"</div>
                     <div class="code-line">};</div>
                 </div>
@@ -191,7 +193,7 @@
             <a href="pages/about.html" class="contact-card" style="text-decoration:none; display:flex; flex-direction:column; justify-content:space-between;">
                 <div>
                     <h3 style="margin-bottom:0.5rem;">About Me</h3>
-                    <p style="color:var(--text-secondary);">I'm a freelance web developer who loves building beautiful, functional websites. Here's what I bring to your project.</p>
+                    <p style="color:var(--text-secondary);">I'm an active freelancer and professional engineer who loves building beautiful, functional websites. Here's what I bring to your project.</p>
                 </div>
                 <div style="margin-top:1rem; color:var(--accent-cyan); font-weight:600;">View Profile →</div>
             </a>
@@ -323,7 +325,7 @@
         });
     
         // Typing animation
-        const phrases = ['Open to freelance & web design roles', 'DevOps & infrastructure automation', 'Full-stack web development'];
+        const phrases = ['Active freelancer and professional engineer', 'DevOps & infrastructure automation', 'Full-stack web development'];
         const typingEl = document.getElementById('typingText');
         let pIndex = 0, charIndex = 0, deleting = false;
 
