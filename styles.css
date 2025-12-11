@@ -88,13 +88,24 @@ body.page-transition {
 }
 
 .logo {
-    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    white-space: nowrap;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo img {
+    height: clamp(35px, 2.1vw, 44px);
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo:hover img {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 245, 0.4));
 }
 
 .nav-menu {
