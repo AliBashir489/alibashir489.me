@@ -288,34 +288,63 @@
     <footer style="text-align:center; padding:2rem 5%; color:var(--text-secondary);">© 2025 Ali Bashir — Active Freelancer & Professional Engineer</footer>
 
     <script>
-        // Contact form handler
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('d7GZ_iN5b1w-tUFX4');
+        })();
+
+        // Contact form handler with EmailJS
         document.getElementById('contactForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
             const formStatus = document.getElementById('formStatus');
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value || 'Not provided';
-            const projectType = document.getElementById('projectType').value;
-            const message = document.getElementById('message').value;
-            
-            const subject = encodeURIComponent(`New Project Inquiry: ${projectType}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProject Type: ${projectType}\n\nMessage:\n${message}`);
-            
-            submitBtn.textContent = 'Opening email...';
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
-            window.location.href = `mailto:alibashirscode@gmail.com?subject=${subject}&body=${body}`;
+            formStatus.textContent = '';
             
-            setTimeout(() => {
-                this.reset();
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-                formStatus.style.color = 'var(--accent-cyan)';
-                formStatus.textContent = '✓ Email client opened! Please send the email.';
-                setTimeout(() => formStatus.textContent = '', 5000);
-            }, 1000);
+            // Get current date/time
+            const now = new Date();
+            const time = now.toLocaleString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true 
+            });
+            
+            // Prepare template parameters
+            const templateParams = {
+                name: document.getElementById('name').value,
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || 'Not provided',
+                project_type: document.getElementById('projectType').selectedOptions[0].text,
+                message: document.getElementById('message').value,
+                time: time
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_vk7k8l9', 'template_r8zcxae', templateParams)
+                .then(function(response) {
+                    // Success
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                    formStatus.style.color = 'var(--accent-cyan)';
+                    formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                    document.getElementById('contactForm').reset();
+                    setTimeout(() => formStatus.textContent = '', 5000);
+                }, function(error) {
+                    // Error
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                    formStatus.style.color = '#ff5f56';
+                    formStatus.textContent = '✗ Failed to send. Please email me directly at alibashirscode@gmail.com';
+                    console.error('EmailJS error:', error);
+                });
         });
         
         document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select').forEach(el => {
@@ -379,6 +408,7 @@
             lastScroll = currentScroll;
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
