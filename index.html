@@ -43,8 +43,10 @@
         header{ position:fixed; top:0; width:100%; padding:1.2rem 5%; background:rgba(15,15,15,0.8); backdrop-filter: blur(20px); z-index:1000; border-bottom:1px solid rgba(255,255,255,0.05); transform:translateY(-100%); transition:transform 0.3s ease; }
         header.show{ transform:translateY(0); }
         nav{ display:flex; justify-content:space-between; align-items:center; max-width:1400px; margin:0 auto; position:relative; z-index:1002; }
-        .logo{ font-family:'Great Vibes', cursive; font-size:clamp(2rem, 2rem + 1.5vw, 3rem); font-weight:400; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-decoration:none; letter-spacing:2px; position:relative; transition:transform 0.3s ease, filter 0.3s ease; }
-        .logo:hover{ transform:scale(1.05); filter:drop-shadow(0 0 10px rgba(0,255,245,0.4)); }
+        .logo{ display:flex; align-items:center; text-decoration:none; transition:transform 0.3s ease, filter 0.3s ease; }
+        .logo img{ height:clamp(40px, 3vw, 55px); width:auto; transition:transform 0.3s ease, filter 0.3s ease; }
+        .logo:hover{ transform:scale(1.05); }
+        .logo:hover img{ filter:drop-shadow(0 0 10px rgba(0,255,245,0.4)); }
         .nav-links{ display:flex; gap:2rem; list-style:none; align-items:center; }
         .nav-links a{ color:var(--text-secondary); text-decoration:none; font-weight:500; position:relative; transition: color 0.3s ease; }
         .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
@@ -111,7 +113,7 @@
     <div class="gradient-bg"></div>
     <header>
         <nav>
-            <a href="index.html" class="logo">Ali Bashir</a>
+            <a href="index.html" class="logo"><img src="Images/logo.png" alt="Ali Bashir Logo"></a>
             <ul class="nav-links" id="navMenu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="pages/about.html">About</a></li>
