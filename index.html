@@ -44,7 +44,7 @@
         header.show{ transform:translateY(0); }
         nav{ display:flex; justify-content:space-between; align-items:center; max-width:1400px; margin:0 auto; position:relative; z-index:1002; }
         .logo{ display:flex; align-items:center; text-decoration:none; transition:transform 0.3s ease, filter 0.3s ease; }
-        .logo img{ height:clamp(30px, 1.8vw, 38px); width:auto; transition:transform 0.3s ease, filter 0.3s ease; }
+        .logo img{ height:clamp(35px, 2.1vw, 44px); width:auto; transition:transform 0.3s ease, filter 0.3s ease; }
         .logo:hover{ transform:scale(1.05); }
         .logo:hover img{ filter:drop-shadow(0 0 10px rgba(0,255,245,0.4)); }
         .nav-links{ display:flex; gap:2rem; list-style:none; align-items:center; }
@@ -54,10 +54,10 @@
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-cta{ padding:0.5rem 1rem; background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple)); border-radius:50px; color:var(--bg-dark) !important; font-weight:600; }
         .nav-cta::after { display:none !important; }
-        .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:6px; position:relative; z-index:1003; pointer-events:auto; padding:8px; }
-        .hamburger span{ width:28px; height:3px; background:linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-radius:3px; pointer-events:none; box-shadow:0 2px 8px rgba(0,255,245,0.3); }
-        .hamburger.active span:nth-child(1){ transform:rotate(45deg) translate(9px, 9px); }
-        .hamburger.active span:nth-child(2){ opacity:0; transform:translateX(20px); }
+        .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; position:relative; z-index:1003; pointer-events:auto; }
+        .hamburger span{ width:25px; height:2px; background:var(--text-primary); transition:all 0.3s; border-radius:2px; pointer-events:none; }
+        .hamburger.active span:nth-child(1){ transform:rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2){ opacity:0; }
         .hamburger.active span:nth-child(3){ transform:rotate(-45deg) translate(9px, -9px); }
         @media (max-width: 768px) {
             .hamburger { display:flex; }
